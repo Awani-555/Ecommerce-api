@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const morgan = require('morgan'); 
 const authRoutes = require('./routes/authRoutes');
+const profileRoutes = require('./routes/profile');
 
 //LOADING ENVIRONMENT VARIABLES
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(express.json());
 
 //ROUTES
 app.use('/api/auth', authRoutes);
+app.use('/api', profileRoutes);
 
 //BASIC ROUTE
 app.get('/api/welcome', (req, res) => {
